@@ -35,7 +35,6 @@ public class QuickSort {
         int j = i+1;
 
         while (j<length+first) {
-            //System.out.println(Arrays.toString(nums));
             // Greater than pivot, then do a swap
             if (nums[j] < nums[first]) {
                 temp = nums[j];
@@ -50,10 +49,7 @@ public class QuickSort {
         nums[i] = nums[first];
         nums[first] = temp;
 
-        //System.out.println(Arrays.toString(nums));
-
         pivotSort(nums,first,i-first);
-        //System.out.println("sorting right with first: " + (i+1)+ ", length: " + (length-(i-first)-1));
         pivotSort(nums,i+1,length-(i-first)-1);
 
     }
@@ -68,12 +64,13 @@ public class QuickSort {
         int firstNum = nums[first];
         int lastNum = nums[first + length - 1];
         int medianNum = nums[first + ((length - 1) / 2)];
-        // TODO: Get Median of above three numbers, then swap that number with the first\
 
+        // Get median of three numbers
         int[] possiblePivots = {firstNum, lastNum, medianNum};
         Arrays.sort(possiblePivots);
-
         int pivotNum = possiblePivots[1];
+
+        // Swap pivot number with first (if not already first)
         if (lastNum == pivotNum) {
             int temp = nums[first];
             nums[first] = lastNum;
@@ -90,7 +87,6 @@ public class QuickSort {
         int j = i + 1;
 
         while (j < length + first) {
-            //System.out.println(Arrays.toString(nums));
             // Greater than pivot, then do a swap
             if (nums[j] < nums[first]) {
                 int temp = nums[j];
@@ -105,10 +101,7 @@ public class QuickSort {
         nums[i] = nums[first];
         nums[first] = temp;
 
-        //System.out.println(Arrays.toString(nums));
-
         pivotSortMedian(nums, first, i - first);
-        //System.out.println("sorting right with first: " + (i+1)+ ", length: " + (length-(i-first)-1));
         pivotSortMedian(nums, i + 1, length - (i - first) - 1);
 
     }
